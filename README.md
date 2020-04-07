@@ -1,8 +1,9 @@
 # Matomo-Anti-Adblock
 A way to bypass adblock for Matomo/Piwik
 
-##### Note
+#### Note
 This has only been tested agains't uBlock Origin
+
 I take no credit for this, all info can be found [here](https://github.com/matomo-org/matomo/issues/7364)
 
 ### Procedee
