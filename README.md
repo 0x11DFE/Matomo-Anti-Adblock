@@ -6,6 +6,8 @@ This has only been tested agains't uBlock Origin
 
 I take no credit for this, all info can be found [here](https://github.com/matomo-org/matomo/issues/7364)
 
+## The "dynamic" way
+
 ### Procedee
  - Create a file in your Mamoto root directory e.x 1337.php and paste the following code
 ```php
@@ -71,4 +73,40 @@ _paq.push(['enableLinkTracking']);
         })();
 </script>
 <noscript><p><img src="https://example.com/matomo.php?1337=1&amp;rec=1" style="border:0;" alt=""/></p></noscript>
+```
+
+
+## The better way
+
+#### Why would you want to use this way?
+- The script called will be static and not modified and returned by a php file so the server will be able to set his header without issues.
+
+### Procedee
+- Copy piwik.js to 1337.js
+- Replace manually "action_name" to "wannabe" and "idsite" to "1337" within the copied file "1337.js".
+- Create a file called 1337.php
+- Paste the php code bellow inside "1337.php"
+- Generate your tracking code true Matomo panel and replace "matomo.php" to "1337.php" and "matomo.js" to "1337.js"
+
+```php
+<?php
+
+// define piwik root path
+if (!defined('PIWIK_DOCUMENT_ROOT')) {
+    define('PIWIK_DOCUMENT_ROOT', dirname(__FILE__) == '/' ? '' : dirname(__FILE__));
+}
+
+// replace "action_name" by "wannabe"
+if (isset($_GET['wannabe'])) {
+    $_GET['action_name'] = $_GET['wannabe'];
+    unset($_GET['wannabe']);
+}
+
+// replace "idsite" by "1337"
+if (isset($_GET['1337'])) {
+    $_GET['idsite'] = $_GET['1337'];
+    unset($_GET['1337']);
+}
+
+include PIWIK_DOCUMENT_ROOT . '/piwik.php';
 ```
