@@ -2,11 +2,18 @@
 A way to bypass adblock for Matomo/Piwik
 
 #### Note
-This has only been tested agains't uBlock Origin
+This has only been tested agains't uBlock Origin.
 
-I take no credit for this, all info can be found [here](https://github.com/matomo-org/matomo/issues/7364)
+[More details about Matomo/Piwik adblock bypass](https://github.com/matomo-org/matomo/issues/7364)
 
 ## The "dynamic" way
+
+#### Downside
+- Header are set by the php file in order to replicate and return a valid javascript text
+So it is unrealiable and not dependent on the server.
+
+#### Why would you want to use this way?
+- With this way after updating Matomo/Piwik you will not be forced to edit anything by hand.
 
 ### Procedee
  - Create a file in your Mamoto root directory e.x 1337.php and paste the following code
@@ -76,7 +83,10 @@ _paq.push(['enableLinkTracking']);
 ```
 
 
-## The better way
+## The "static" way
+
+#### Downside
+- Everytime that Matomo/Piwik gets updated you will need to recreate/copy "matomo.js" to "1337.js"
 
 #### Why would you want to use this way?
 - The script called will be static and not modified and returned by a php file so the server will be able to set his header without issues.
