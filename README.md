@@ -86,7 +86,7 @@ _paq.push(['enableLinkTracking']);
 ## The "static" way
 
 #### Downside
-- Everytime that Matomo/Piwik gets updated you will need to recreate/copy "matomo.js" to "1337.js"
+- Everytime that Matomo/Piwik gets updated you will need to redo the first part of the [procedee](#procedee-1).
 
 #### Why would you want to use this way?
 - The script called will be static and not modified and returned by a php file so the server will be able to set his header without issues.
