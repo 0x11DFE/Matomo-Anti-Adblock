@@ -9,7 +9,7 @@ This has only been tested agains't uBlock Origin.
 ## The "dynamic" way
 
 #### Downside
-- Header are set by the php file in order to replicate and return a valid javascript text
+- The server header set to the script is set by the php file in order to replicate and return a valid javascript text
 So it is unrealiable and not dependent on the server.
 
 #### Why would you want to use this way?
